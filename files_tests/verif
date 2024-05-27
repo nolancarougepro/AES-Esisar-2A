@@ -1,0 +1,11 @@
+#!/bin/bash
+for a in 128 192 256
+do
+for t in ecb cbc
+do
+for i in {1..16}
+do
+ diff test/"$i"x test/"$i"x_"$t"_crypted_"$a"_"$t"_decrypted
+done
+done
+done

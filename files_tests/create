@@ -1,0 +1,13 @@
+#!/bin/bash
+rm test/*_*
+for a in 128 192 256
+do
+for t in ecb cbc
+do
+../aes"$a" c "$t" key_"$a" test/*x
+../aes"$a" d "$t" key_"$a" test/*"$t"*"$a"*
+done
+done
+rm test/*_crypted_128
+rm test/*_crypted_192
+rm test/*_crypted_256
